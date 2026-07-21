@@ -1,0 +1,198 @@
+[
+    {
+        "question": "which Pokemon has the pokedex entry? \"It is said that _____'s fire burns hotter if it has experienced harsh battles.\" (Pokemon Black and White)",
+        "answer": "B",
+        "selections": [
+            {
+                "label": "A",
+                "value": "Flareon"
+            },
+            {
+                "label": "B",
+                "value": "Charizard"
+            },
+            {
+                "label": "C",
+                "value": "Blaziken"
+            },
+            {
+                "label": "D",
+                "value": "Infernape"
+            }
+        ]
+    },
+    {
+        "question": "If a Pokemon is dual steel and psychic type, it has a resistance to fighting type moves?",
+        "answer": "B",
+        "selections": [
+            {
+                "label": "A",
+                "value": "True"
+            },
+            {
+                "label": "B",
+                "value": "False"
+            }
+        ]
+    },
+    {
+        "question": "Eevee has 8 different evolutions. They are: Vaporeon, Jolteon, Flareon, Umbreon, Leafeon, Glaceon, Sylveon, and _______.",
+        "answer": "C",
+        "selections": [
+            {
+                "label": "A",
+                "value": "Metagross"
+            },
+            {
+                "label": "B",
+                "value": "Hypno"
+            },
+            {
+                "label": "C",
+                "value": "Espeon"
+            },
+            {
+                "label": "D",
+                "value": "Necrozma"
+            }
+        ]
+    },
+    {
+        "question": "In most Pokemon games, there are a total of eight Gyms, what type is the Veilstone City gym in Pokemon Platinum?",
+        "answer": "A",
+        "selections": [
+            {
+                "label": "A",
+                "value": "Fighting"
+            },
+            {
+                "label": "B",
+                "value": "Steel"
+            },
+            {
+                "label": "C",
+                "value": "Rock"
+            },
+            {
+                "label": "D",
+                "value": "Water"
+            }
+        ]
+    },
+    {
+        "question": "What is the name of the mechanic from generation 4 where Pokemon has a higher chance of being a shiny from breeding two Pokemon of different languages?",
+        "answer": "A",
+        "selections": [
+            {
+                "label": "A",
+                "value": "Masuda method"
+            },
+            {
+                "label": "B",
+                "value": "Iwata method"
+            },
+            {
+                "label": "C",
+                "value": "Miyamoto method"
+            },
+            {
+                "label": "D",
+                "value": "Takeda method"
+            }
+        ]
+    },
+    {
+        "question": "Fairy type was first introduced in the generation 6 games.",
+        "answer": "B",
+        "selections": [
+            {
+                "label": "A",
+                "value": "True"
+            },
+            {
+                "label": "B",
+                "value": "False"
+            }
+        ]
+    },
+    {
+        "question": "In most games, there is a lottery stand you can draw from, and if two or more digits match any of your pokemon's OT ID, you win a prize. What is the grand prize?",
+        "answer": "D",
+        "selections": [
+            {
+                "label" : "A",
+                "value": "Exp share"
+            },
+            {
+                "label": "B",
+                "value": "Cherish ball"
+            },
+            {
+                "label": "C",
+                "value": "Rare candy"
+            },
+            {
+                "label": "D",
+                "value": "Master ball"
+            }
+        ]
+    },
+    {
+        "question": "In most games, you are given the choice between three starter pokemon, one is a fire type, another is a water type, and the last one is a ________ type.",
+        "answer": "D",
+        "selections": [
+            {
+                "label": "A",
+                "value": "Psychic"
+            },
+            {
+                "label": "B",
+                "value": "Ice"
+            },
+            {
+                "label": "C",
+                "value": "Ground"
+            },
+            {
+                "label": "D",
+                "value": "Grass"
+            }
+        ]
+    },
+    {
+        "question": "In gen 6 and up, if a pokemon is a duel dark and ghost type, they are not weak to any type.",
+        "answer": "A",
+        "selections": [
+            {
+                "label": "A",
+                "value": "True"
+            },
+            {
+                "label": "B",
+                "value": "False"
+            }
+        ]
+    },
+    {
+        "question": "If you were to play all tof the pokemon games, you will notice a pattern with the names of all the profressors. What is that pattern?",
+        "answer": "B",
+        "selections": [
+            {
+                "label": "A",
+                "value": "They are named after places"
+            },
+            {
+                "label": "B",
+                "value": "They are named after trees"
+            },
+            {
+                "label": "C",
+                "value": "They are named after crystals"
+            },
+            {
+                "label": "D",
+                "value": "They are named after rocks"
+            }
+        ]
+    }
+]
