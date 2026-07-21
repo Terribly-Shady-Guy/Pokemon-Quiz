@@ -6,19 +6,19 @@ export interface QuizQuestionDetail {
     correctAnswer: string;
 };
 
-type QuizStatus = "not-started" | "started" | "finished"
+type QuizStatus = "not-started" | "started" | "finished";
 
 interface QuizState {
     score: number
     questionInfo: QuizQuestionDetail[]
     status: QuizStatus
-}
+};
 
 interface QuizActions {
     insertQuestionInfo: (newDetail: QuizQuestionDetail) => void
     setQuizStatus: (newStatus: QuizStatus) => void
     reset: () => void
-}
+};
 
 type QuizStore = QuizState & QuizActions;
 
@@ -27,15 +27,15 @@ export const useQuizStore = create<QuizStore>((set, _, store) => ({
     questionInfo: [],
     status: "not-started",
 
-    setQuizStatus(newStatus) {
+    setQuizStatus: newStatus => {
         set(() => ({ status: newStatus }));
     },
 
-    insertQuestionInfo(newDetail) {
+    insertQuestionInfo: newDetail => {
         set(state => modifyQuizState(state, newDetail));
     },
 
-    reset() {
+    reset: () => {
         set(store.getInitialState());
     }
 }));
