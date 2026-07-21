@@ -1,10 +1,10 @@
 import { create } from "zustand";
 
 export interface QuizQuestionDetail {
-    questionNumber: number;
-    userAnswer: string | null;
-    correctAnswer: string;
-};
+    questionNumber: number
+    userAnswer: string | null
+    correctAnswer: string
+}
 
 type QuizStatus = "not-started" | "started" | "finished";
 
@@ -12,7 +12,7 @@ interface QuizState {
     score: number
     questionInfo: QuizQuestionDetail[]
     status: QuizStatus
-};
+}
 
 interface QuizActions {
     insertQuestionInfo: (newDetail: QuizQuestionDetail) => void

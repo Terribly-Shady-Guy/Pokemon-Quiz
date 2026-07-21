@@ -5,8 +5,8 @@ const secondsFormatter = new Intl.NumberFormat("en-US", {
 });
 
 interface TimerProps {
-    timeoutSeconds: number,
-    onTimeout: () => void,
+    timeoutSeconds: number
+    onTimeout: () => void
     isDisabled: boolean
 }
 

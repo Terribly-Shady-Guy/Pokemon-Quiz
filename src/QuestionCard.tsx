@@ -6,9 +6,9 @@ import { Timer } from "./Timer";
 import { type Question } from "./questions.json.ts";
 
 interface QuestionCardProps {
-    question: Question;
-    questionNumber: number;
-};
+    question: Question
+    questionNumber: number
+}
 
 export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
     const store = useQuizStore(useShallow(state => ({
