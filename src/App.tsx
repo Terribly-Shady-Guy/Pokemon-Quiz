@@ -30,11 +30,12 @@ function StartView({ startQuiz }: StartQuizProps) {
     return (
         <div>
             <p>
-                Welcome to the Pokemon trivia page! 
+                Welcome to the Pokemon trivia Quiz! 
 			    If you're here, then that means that you want to put your
 				Pokemon knowledge to the test. You will be asked 10 pokemon
-				related questions ranging from pokedex entries to type machups.
-				Try to complete the quiz as fast as possible.
+				related questions ranging from pokedex entries to type matchups.
+				You only get 1 minute per question. 
+                If you fail to answer before time runs out, you lose a point.
             </p>
             <button type="button" onClick={startQuiz}>Start Quiz</button>
         </div>
@@ -48,7 +49,8 @@ function EndView() {
         reset: state.reset
     })));
 
-    const incorrectAnswers = store.questionInfo.filter(info => info.userAnswer !== info.correctAnswer)
+    const incorrectAnswers = store.questionInfo
+        .filter(info => info.userAnswer !== info.correctAnswer)
         .map(info => (
             <div>
                 <p key={info.questionNumber}>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
