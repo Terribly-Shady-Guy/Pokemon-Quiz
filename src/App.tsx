@@ -51,9 +51,9 @@ function EndView() {
     const incorrectAnswers = store.questionInfo.filter(info => info.userAnswer !== info.correctAnswer)
         .map(info => (
             <div>
-                <p>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
+                <p key={info.questionNumber}>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
             </div>
-        ))
+        ));
 
     return (
         <>
@@ -61,5 +61,5 @@ function EndView() {
             {incorrectAnswers}
             <button type="button" onClick={store.reset}>Restart Quiz</button>
         </>
-    )
+    );
 }
