@@ -14,7 +14,6 @@ export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerPr
     const [secondsLeft, setSecondsLeft] = useState<number>(timeoutSeconds);
 
     const dispatchOnTimeout = useEffectEvent(() => onTimeout());
-
     useEffect(() => {
         if (isDisabled) {
             return;
