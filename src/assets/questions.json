@@ -103,7 +103,7 @@
     },
     {
         "question": "Fairy type was first introduced in the generation 6 games.",
-        "answer": "B",
+        "answer": "A",
         "selections": [
             {
                 "label": "A",
@@ -161,7 +161,7 @@
     },
     {
         "question": "In gen 6 and up, if a pokemon is a duel dark and ghost type, they are not weak to any type.",
-        "answer": "A",
+        "answer": "B",
         "selections": [
             {
                 "label": "A",

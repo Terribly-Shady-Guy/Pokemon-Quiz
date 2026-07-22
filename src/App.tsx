@@ -3,7 +3,6 @@ import { useShallow } from "zustand/shallow";
 import { QuizView } from "./QuizView";
 import { useQuizStore } from "./store";
 
-
 export default function App() {
     const statusStore = useQuizStore(useShallow(state => ({
         status: state.status,
@@ -18,6 +17,7 @@ export default function App() {
         <>
             {statusStore.status === "not-started" && <StartView startQuiz={startQuiz}></StartView>}
             {statusStore.status === "started" && <QuizView></QuizView>}
+            {statusStore.status === "finished" && <EndView></EndView>}
         </>
     )
 }
@@ -41,3 +41,25 @@ function StartView({ startQuiz }: StartQuizProps) {
     )
 }
 
+function EndView() {
+    const store = useQuizStore(useShallow(state => ({
+        score: state.score,
+        questionInfo: state.questionInfo,
+        reset: state.reset
+    })));
+
+    const incorrectAnswers = store.questionInfo.filter(info => info.userAnswer !== info.correctAnswer)
+        .map(info => (
+            <div>
+                <p>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
+            </div>
+        ))
+
+    return (
+        <>
+            <p>Your final score is: {store.score} out of {store.questionInfo.length}.</p>
+            {incorrectAnswers}
+            <button type="button" onClick={store.reset}>Restart Quiz</button>
+        </>
+    )
+}

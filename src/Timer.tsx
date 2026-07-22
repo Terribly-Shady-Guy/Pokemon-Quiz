@@ -21,15 +21,21 @@ export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerPr
         }
         
         const intervalId = setInterval(() => {
+            let shouldTimeout = false;
+
             setSecondsLeft(seconds => {
                 if (seconds <= 1) {
-                    clearInterval(intervalId);
-                    dispatchOnTimeout();
+                    shouldTimeout = true;
                     return 0;
                 }
 
                 return seconds - 1;
             });
+
+            if (shouldTimeout) {
+                clearInterval(intervalId);
+                dispatchOnTimeout();
+            }
         }, 1000);
 
         return () => clearInterval(intervalId);
