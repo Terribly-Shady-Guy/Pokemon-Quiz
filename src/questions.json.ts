@@ -1,4 +1,4 @@
-import rawQuestionsJson from "./questions.json" with { type: "json" };
+import rawQuestionsJson from "./assets/questions.json" with { type: "json" };
 
 export interface AnswerSelection {
     label: string
