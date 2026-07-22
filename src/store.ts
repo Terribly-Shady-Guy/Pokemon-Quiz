@@ -18,7 +18,7 @@ interface QuizActions {
     insertQuestionInfo: (newDetail: QuizQuestionDetail) => void
     setQuizStatus: (newStatus: QuizStatus) => void
     reset: () => void
-};
+}
 
 type QuizStore = QuizState & QuizActions;
 
