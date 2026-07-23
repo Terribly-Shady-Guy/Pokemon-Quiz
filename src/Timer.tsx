@@ -13,7 +13,7 @@ interface TimerProps {
 export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerProps) {
     const [secondsLeft, setSecondsLeft] = useState<number>(timeoutSeconds);
 
-    const dispatchOnTimeout = useEffectEvent(() => onTimeout());
+    const onTimeoutEvent = useEffectEvent(() => onTimeout());
     useEffect(() => {
         if (isDisabled) {
             return;
@@ -33,7 +33,7 @@ export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerPr
 
             if (shouldTimeout) {
                 clearInterval(intervalId);
-                dispatchOnTimeout();
+                onTimeoutEvent();
             }
         }, 1000);
 
