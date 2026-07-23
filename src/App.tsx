@@ -52,15 +52,15 @@ function EndView() {
     const incorrectAnswers = store.questionInfo
         .filter(info => info.userAnswer !== info.correctAnswer)
         .map(info => (
-            <div>
-                <p key={info.questionNumber}>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
-            </div>
+            <p key={info.questionNumber}>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
         ));
 
     return (
         <>
             <p>Your final score is: {store.score} out of {store.questionInfo.length}.</p>
-            {incorrectAnswers}
+            <div>
+                {incorrectAnswers}
+            </div>
             <button type="button" onClick={store.reset}>Restart Quiz</button>
         </>
     );
