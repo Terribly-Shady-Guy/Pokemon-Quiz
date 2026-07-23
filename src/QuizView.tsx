@@ -6,11 +6,11 @@ import { QuestionCard } from "./QuestionCard";
 
 
 export function QuizView() {
-    const questionInfo = useQuizStore(state => state.questionInfo);
+    const questionInfoLength = useQuizStore(state => state.questionInfo.length);
     const setQuizStatus = useQuizStore(state => state.setQuizStatus);
 
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(1);
-    const shouldBeDisabled = currentQuestionNumber >= questionInfo.length + 1;
+    const shouldBeDisabled = currentQuestionNumber >= questionInfoLength + 1;
 
     const toNextQuestionOrFinish = () => {
         if (currentQuestionNumber >= questions.length) {

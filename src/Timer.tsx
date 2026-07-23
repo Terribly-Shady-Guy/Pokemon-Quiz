@@ -19,22 +19,18 @@ export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerPr
             return;
         }
         
+        let shouldTimeout = false;
         const intervalId = setInterval(() => {
-            let shouldTimeout = false;
-
-            setSecondsLeft(seconds => {
-                if (seconds <= 1) {
-                    shouldTimeout = true;
-                    return 0;
-                }
-
-                return seconds - 1;
-            });
-
             if (shouldTimeout) {
                 clearInterval(intervalId);
                 onTimeoutEvent();
+                return;
             }
+
+            setSecondsLeft(seconds => {
+                shouldTimeout = seconds <= 1;
+                return seconds - 1;
+            });
         }, 1000);
 
         return () => clearInterval(intervalId);
