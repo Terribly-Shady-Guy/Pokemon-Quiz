@@ -52,7 +52,11 @@ function EndView() {
     const incorrectAnswers = store.questionInfo
         .filter(info => info.userAnswer !== info.correctAnswer)
         .map(info => (
-            <p key={info.questionNumber}>{info.questionNumber} Your answer: {info.userAnswer} Correct answer: {info.correctAnswer}</p>
+            <p key={info.questionNumber}>
+                {info.questionNumber} 
+                Your answer: {info.userAnswer} 
+                Correct answer: {info.correctAnswer}
+            </p>
         ));
 
     return (
