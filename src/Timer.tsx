@@ -38,10 +38,10 @@ export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerPr
 
     const minutes = Math.floor(secondsLeft / 60);
     const seconds = secondsLeft % 60;
-    
+
     return (
-        <time dateTime={`PT0H${minutes}M${seconds}S`} role="timer">
+        <div role="timer">
             {minutes}:{secondsFormatter.format(seconds)}
-        </time>
+        </div>
     );
 }
