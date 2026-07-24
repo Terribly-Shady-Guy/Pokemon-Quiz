@@ -51,13 +51,21 @@ function EndView() {
 
     const incorrectAnswers = store.questionInfo
         .filter(info => info.userAnswer !== info.correctAnswer)
-        .map(info => (
-            <p key={info.questionNumber}>
-                {info.questionNumber} 
-                Your answer: {info.userAnswer} 
-                Correct answer: {info.correctAnswer}
-            </p>
-        ));
+        .map(info => {
+            let answerDisplay: string;
+            if (info.userAnswer === null) {
+                answerDisplay = "Time ran out.";
+            } else {
+                answerDisplay = `User answer: ${info.userAnswer}. Correct answer: ${info.correctAnswer}.`;
+            }
+
+            return (
+                <div key={info.questionNumber}>
+                    <p>Question Number: {info.questionNumber}</p>
+                    <p>{answerDisplay}</p>
+                </div>
+            );
+        });
 
     return (
         <div>
