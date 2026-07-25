@@ -1,4 +1,4 @@
-import { useState, useEffect, useEffectEvent } from "react";
+import { useState, useEffect, useEffectEvent, useRef } from "react";
 
 const secondsFormatter = new Intl.NumberFormat("en-US", {
     minimumIntegerDigits: 2,
@@ -12,9 +12,18 @@ interface TimerProps {
 
 export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerProps) {
     const [secondsLeft, setSecondsLeft] = useState<number>(timeoutSeconds);
+    const hasTimeoutFiredRef = useRef(false);
     const shouldTimeout = secondsLeft <= 0;
 
-    const onTimeoutEvent = useEffectEvent(() => onTimeout());
+    const onTimeoutEvent = useEffectEvent(() => {
+        if (hasTimeoutFiredRef.current) {
+            return;
+        }
+
+        onTimeout();
+        hasTimeoutFiredRef.current = true;
+    });
+    
     useEffect(() => {
         if (isDisabled) {
             return;
