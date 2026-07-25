@@ -12,6 +12,7 @@ interface TimerProps {
 
 export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerProps) {
     const [secondsLeft, setSecondsLeft] = useState<number>(timeoutSeconds);
+    const shouldTimeout = secondsLeft <= 0;
 
     const onTimeoutEvent = useEffectEvent(() => onTimeout());
     useEffect(() => {
@@ -19,22 +20,17 @@ export function Timer({ timeoutSeconds, onTimeout, isDisabled = false }: TimerPr
             return;
         }
         
-        let shouldTimeout = false;
-        const intervalId = setInterval(() => {
-            if (shouldTimeout) {
-                clearInterval(intervalId);
-                onTimeoutEvent();
-                return;
-            }
+        if (shouldTimeout) {
+            onTimeoutEvent();
+            return;
+        }
 
-            setSecondsLeft(seconds => {
-                shouldTimeout = seconds <= 1;
-                return seconds - 1;
-            });
+        const intervalId = setInterval(() => {
+            setSecondsLeft(seconds => seconds - 1);
         }, 1000);
 
         return () => clearInterval(intervalId);
-    }, [isDisabled]);
+    }, [isDisabled, shouldTimeout]);
 
     const minutes = Math.floor(secondsLeft / 60);
     const seconds = secondsLeft % 60;
