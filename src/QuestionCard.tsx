@@ -5,12 +5,15 @@ import { useQuizStore, type QuizQuestionDetail } from "./store"
 import { Timer } from "./Timer";
 import { type Question } from "./questions.json.ts";
 
-interface QuestionCardProps {
-    question: Question
+interface NumberedQuestion extends Question {
     questionNumber: number
 }
 
-export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
+interface QuestionCardProps {
+    question: NumberedQuestion
+}
+
+export function QuestionCard({ question }: QuestionCardProps) {
     const store = useQuizStore(useShallow(state => ({
         insertQuestionInfo: state.insertQuestionInfo,
         questionInfo: state.questionInfo
@@ -22,7 +25,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
             const button = event.currentTarget;
 
             const newQuestionDetail: QuizQuestionDetail = {
-                questionNumber: questionNumber,
+                questionNumber: question.questionNumber,
                 correctAnswer: question.answer,
                 userAnswer: button.value
             };
@@ -32,7 +35,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
 
     const handleTimeout = () => {
         const newQuestionDetail: QuizQuestionDetail = {
-            questionNumber: questionNumber,
+            questionNumber: question.questionNumber,
             correctAnswer: question.answer,
             userAnswer: null
         };
@@ -40,7 +43,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
         store.insertQuestionInfo(newQuestionDetail);
     };
 
-    const shouldBeDisabled = currentQuestionInfo?.questionNumber === questionNumber;
+    const shouldBeDisabled = currentQuestionInfo?.questionNumber === question.questionNumber;
     const selectionButtons = question.selections.map(selection => (
         <button type="button" key={selection.label} value={selection.label} onClick={handleClick} disabled={shouldBeDisabled}>
             {selection.label}. {selection.value}
@@ -49,8 +52,8 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
 
     return (
         <>
-            <Timer key={questionNumber} timeoutSeconds={60} onTimeout={handleTimeout} isDisabled={shouldBeDisabled} />
-            <p>{questionNumber}. {question.question}</p>
+            <Timer key={question.questionNumber} timeoutSeconds={60} onTimeout={handleTimeout} isDisabled={shouldBeDisabled} />
+            <p>{question.questionNumber}. {question.question}</p>
             <div>
                 {selectionButtons}
             </div>

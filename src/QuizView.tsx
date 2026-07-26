@@ -23,10 +23,15 @@ export function QuizView() {
 
         setCurrentQuestionNumber(state => state + 1);
     }
+
+    const numberedQuestion = {
+        questionNumber: currentQuestionNumber,
+        ...questions[currentQuestionNumber - 1]
+    };
     
     return (
         <div>
-            <QuestionCard question={questions[currentQuestionNumber - 1]} questionNumber={currentQuestionNumber} />
+            <QuestionCard question={numberedQuestion} />
             <button type="button" onClick={toNextQuestionOrFinish} disabled={shouldBeDisabled}>
                 {currentQuestionNumber >= questions.length ? "Finish" : "Next Question"}
             </button>
