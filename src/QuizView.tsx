@@ -11,7 +11,6 @@ export function QuizView() {
         setQuizStatus: state.setQuizStatus
     })));
 
-
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(1);
     const shouldBeDisabled = currentQuestionNumber >= store.numQuestionsCompleted + 1;
 
