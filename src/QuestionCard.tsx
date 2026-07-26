@@ -46,7 +46,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
 
     return (
         <>
-            <Timer key={questionNumber} timeoutSeconds={60} onTimeout={handleTimeout} isDisabled={shouldBeDisabled}></Timer>
+            <Timer key={questionNumber} timeoutSeconds={60} onTimeout={handleTimeout} isDisabled={shouldBeDisabled} />
             <p>{questionNumber}. {question.question}</p>
             <div>
                 {selectionButtons}

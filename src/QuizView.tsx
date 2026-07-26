@@ -23,7 +23,7 @@ export function QuizView() {
     
     return (
         <div>
-            <QuestionCard question={questions[currentQuestionNumber - 1]} questionNumber={currentQuestionNumber}></QuestionCard>
+            <QuestionCard question={questions[currentQuestionNumber - 1]} questionNumber={currentQuestionNumber} />
             <button type="button" onClick={toNextQuestionOrFinish} disabled={shouldBeDisabled}>
                 {currentQuestionNumber >= questions.length ? "Finish" : "Next Question"}
             </button>

@@ -15,9 +15,9 @@ export default function App() {
 
     return (
         <>
-            {statusStore.status === "not-started" && <StartView startQuiz={startQuiz}></StartView>}
-            {statusStore.status === "started" && <QuizView></QuizView>}
-            {statusStore.status === "finished" && <EndView></EndView>}
+            {statusStore.status === "not-started" && <StartView startQuiz={startQuiz} />}
+            {statusStore.status === "started" && <QuizView />}
+            {statusStore.status === "finished" && <EndView />}
         </>
     )
 }
