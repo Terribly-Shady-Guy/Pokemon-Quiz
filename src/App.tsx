@@ -43,15 +43,13 @@ function EndView() {
 
     const incorrectAnswers = store.questionInfo
         .filter(info => info.userAnswer !== info.correctAnswer)
-        .map(info => {
-            return (
-                <div key={info.questionNumber}>
-                    <p>Question Number: {info.questionNumber}</p>
-                    <p>{info.userAnswer === null ? "Time ran out" : `User answer: ${info.userAnswer}`}</p>
-                    <p>Correct answer: {info.correctAnswer}</p>
-                </div>
-            );
-        });
+        .map(info => (
+            <div key={info.questionNumber}>
+                <p>Question Number: {info.questionNumber}</p>
+                <p>{info.userAnswer === null ? "Time ran out" : `User answer: ${info.userAnswer}`}</p>
+                <p>Correct answer: {info.correctAnswer}</p>
+            </div>
+        ));
 
     return (
         <div>
