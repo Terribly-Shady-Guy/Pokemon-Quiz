@@ -175,7 +175,7 @@
     },
     {
         "question": "If you were to play all tof the pokemon games, you will notice a pattern with the names of all the profressors. What is that pattern?",
-        "answer": "B",
+        "answer": "C",
         "selections": [
             {
                 "label": "A",
@@ -183,11 +183,11 @@
             },
             {
                 "label": "B",
-                "value": "They are named after trees"
+                "value": "They are named after crystals"
             },
             {
                 "label": "C",
-                "value": "They are named after crystals"
+                "value": "They are named after trees"
             },
             {
                 "label": "D",
