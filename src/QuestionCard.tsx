@@ -5,7 +5,7 @@ import { useQuizStore, type QuizQuestionDetail } from "./store"
 import { Timer } from "./Timer";
 import { type Question } from "./questions.json.ts";
 
-interface NumberedQuestion extends Question {
+export interface NumberedQuestion extends Question {
     questionNumber: number
 }
 
