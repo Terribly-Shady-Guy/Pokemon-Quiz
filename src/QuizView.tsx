@@ -1,10 +1,9 @@
 import { useState } from "react";
+import { useShallow } from "zustand/shallow";
 
 import { questions } from "./questions.json.ts";
 import { useQuizStore } from "./store";
 import { QuestionCard } from "./QuestionCard";
-import { useShallow } from "zustand/shallow";
-
 
 export function QuizView() {
     const store = useQuizStore(useShallow(state => ({

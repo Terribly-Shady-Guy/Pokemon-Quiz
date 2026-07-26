@@ -1,9 +1,9 @@
 import { type MouseEvent } from "react";
+import { useShallow } from "zustand/shallow";
 
 import { useQuizStore, type QuizQuestionDetail } from "./store"
 import { Timer } from "./Timer";
 import { type Question } from "./questions.json.ts";
-import { useShallow } from "zustand/shallow";
 
 interface QuestionCardProps {
     question: Question
