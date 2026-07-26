@@ -19,7 +19,7 @@ export default function App() {
             {statusStore.status === "started" && <QuizView />}
             {statusStore.status === "finished" && <EndView />}
         </>
-    )
+    );
 }
 
 interface StartQuizProps {
@@ -39,7 +39,7 @@ function StartView({ startQuiz }: StartQuizProps) {
             </p>
             <button type="button" onClick={startQuiz}>Start Quiz</button>
         </div>
-    )
+    );
 }
 
 function EndView() {
