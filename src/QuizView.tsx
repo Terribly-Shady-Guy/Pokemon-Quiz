@@ -3,18 +3,22 @@ import { useState } from "react";
 import { questions } from "./questions.json.ts";
 import { useQuizStore } from "./store";
 import { QuestionCard } from "./QuestionCard";
+import { useShallow } from "zustand/shallow";
 
 
 export function QuizView() {
-    const questionInfoLength = useQuizStore(state => state.questionInfo.length);
-    const setQuizStatus = useQuizStore(state => state.setQuizStatus);
+    const store = useQuizStore(useShallow(state => ({
+        numQuestionsCompleted: state.questionInfo.length,
+        setQuizStatus: state.setQuizStatus
+    })));
+
 
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(1);
-    const shouldBeDisabled = currentQuestionNumber >= questionInfoLength + 1;
+    const shouldBeDisabled = currentQuestionNumber >= store.numQuestionsCompleted + 1;
 
     const toNextQuestionOrFinish = () => {
         if (currentQuestionNumber >= questions.length) {
-            setQuizStatus("finished");
+            store.setQuizStatus("finished");
             return;
         }
 

@@ -3,6 +3,7 @@ import { type MouseEvent } from "react";
 import { useQuizStore, type QuizQuestionDetail } from "./store"
 import { Timer } from "./Timer";
 import { type Question } from "./questions.json.ts";
+import { useShallow } from "zustand/shallow";
 
 interface QuestionCardProps {
     question: Question
@@ -10,10 +11,12 @@ interface QuestionCardProps {
 }
 
 export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
-    const insertQuestionInfo = useQuizStore(state => state.insertQuestionInfo);
-    const questionInfo = useQuizStore(state => state.questionInfo);
+    const store = useQuizStore(useShallow(state => ({
+        insertQuestionInfo: state.insertQuestionInfo,
+        questionInfo: state.questionInfo
+    })));
 
-    const currentQuestionInfo = questionInfo.at(-1);
+    const currentQuestionInfo = store.questionInfo.at(-1);
 
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
             const button = event.currentTarget;
@@ -24,7 +27,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
                 userAnswer: button.value
             };
 
-            insertQuestionInfo(newQuestionDetail);
+            store.insertQuestionInfo(newQuestionDetail);
         };
 
     const handleTimeout = () => {
@@ -34,7 +37,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
             userAnswer: null
         };
 
-        insertQuestionInfo(newQuestionDetail);
+        store.insertQuestionInfo(newQuestionDetail);
     };
 
     const shouldBeDisabled = currentQuestionInfo?.questionNumber === questionNumber;
