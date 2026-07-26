@@ -4,13 +4,13 @@ import { QuizView } from "./QuizView";
 import { useQuizStore } from "./store";
 
 export default function App() {
-    const status = useQuizStore(state => state.status);
+    const quizStatus = useQuizStore(state => state.status);
 
     return (
         <>
-            {status === "not-started" && <StartView />}
-            {status === "started" && <QuizView />}
-            {status === "finished" && <EndView />}
+            {quizStatus === "not-started" && <StartView />}
+            {quizStatus === "started" && <QuizView />}
+            {quizStatus === "finished" && <EndView />}
         </>
     );
 }
@@ -18,7 +18,7 @@ export default function App() {
 function StartView() {
     const setStatus = useQuizStore(state => state.setQuizStatus);
     const startQuiz = () => setStatus("started");
-    
+
     return (
         <div>
             <p>
