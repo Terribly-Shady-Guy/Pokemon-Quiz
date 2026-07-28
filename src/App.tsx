@@ -45,9 +45,9 @@ function EndView() {
         .filter(info => info.userAnswer !== info.correctAnswer)
         .map(info => (
             <div key={info.questionNumber}>
-                <p>Question Number: {info.questionNumber}</p>
-                <p>{info.userAnswer === null ? "Time ran out" : `User answer: ${info.userAnswer}`}</p>
-                <p>Correct answer: {info.correctAnswer}</p>
+                <p>Question Number: {info.questionNumber}.</p>
+                <p>{info.userAnswer === null ? "Time ran out" : `User answer: ${info.userAnswer}`}.</p>
+                <p>Correct answer: {info.correctAnswer}.</p>
             </div>
         ));
 
