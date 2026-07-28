@@ -16,8 +16,8 @@ export default function App() {
 }
 
 function StartView() {
-    const setStatus = useQuizStore(state => state.setQuizStatus);
-    const startQuiz = () => setStatus("started");
+    const setQuizStatus = useQuizStore(state => state.setQuizStatus);
+    const startQuiz = () => setQuizStatus("started");
 
     return (
         <div>
