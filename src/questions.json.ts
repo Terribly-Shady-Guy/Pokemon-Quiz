@@ -11,4 +11,4 @@ export interface Question {
     selections: AnswerSelection[]
 };
 
-export const questions = rawQuestionsJson satisfies Question[];
+export const questions: Question[] = rawQuestionsJson satisfies Question[];
