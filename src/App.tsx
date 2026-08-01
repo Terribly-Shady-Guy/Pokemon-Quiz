@@ -53,7 +53,7 @@ function EndView() {
 
     return (
         <div>
-            <p>Your final score is: {store.score} out of {store.questionInfo.length}.</p>
+            <p>Your final score is {store.score}. Total questions in the quiz: {store.questionInfo.length}.</p>
             <div>
                 {incorrectAnswers}
             </div>
