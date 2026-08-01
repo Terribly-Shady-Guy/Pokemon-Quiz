@@ -27,25 +27,23 @@ export const useQuizStore = create<QuizStore>((set, _, store) => ({
     },
 
     insertQuestionInfo: newDetail => {
-        set(state => modifyQuizState(state, newDetail));
+        set(state => {
+             const newState = {
+                questionInfo: [...state.questionInfo, newDetail],
+                score: state.score
+            };
+
+            if (newDetail.userAnswer === null) {
+                newState.score--;
+            } else if (newDetail.userAnswer === newDetail.correctAnswer) {
+                newState.score++;
+            }
+
+            return newState;
+        });
     },
 
     reset: () => {
         set(store.getInitialState());
     }
 }));
-
-function modifyQuizState(state: QuizStore, newDetail: QuizQuestionDetail) {
-    const newState = {
-        questionInfo: [...state.questionInfo, newDetail],
-        score: state.score
-    };
-
-    if (newDetail.userAnswer === null) {
-        newState.score--;
-    } else if (newDetail.userAnswer === newDetail.correctAnswer) {
-        newState.score++;
-    }
-
-    return newState;
-}
