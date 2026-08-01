@@ -20,7 +20,8 @@ function StartView() {
     const startQuiz = () => setQuizStatus("started");
 
     return (
-        <div>
+        <section>
+            <h1>Pokemon Quiz</h1>
             <p>
                 Welcome to the Pokemon trivia Quiz! 
 			    If you're here, then that means that you want to put your
@@ -30,7 +31,7 @@ function StartView() {
                 If you fail to answer before time runs out, you lose a point.
             </p>
             <button type="button" onClick={startQuiz}>Start Quiz</button>
-        </div>
+        </section>
     );
 }
 
@@ -52,12 +53,13 @@ function EndView() {
         ));
 
     return (
-        <div>
+        <section>
+            <h1>Quiz Results</h1>
             <p>Your final score is {store.score}. Total questions in the quiz: {store.questionInfo.length}.</p>
             <div>
                 {incorrectAnswers.length > 0 ? incorrectAnswers : <p>No incorrect answers! Good job.</p>}
             </div>
             <button type="button" onClick={store.reset}>Restart Quiz</button>
-        </div>
+        </section>
     );
 }
