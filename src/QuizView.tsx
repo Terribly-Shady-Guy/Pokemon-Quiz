@@ -3,7 +3,7 @@ import { useShallow } from "zustand/shallow";
 
 import { questions } from "./questions.json.ts";
 import { useQuizStore } from "./store";
-import { QuestionCard, type NumberedQuestion } from "./QuestionCard";
+import { QuestionCard } from "./QuestionCard";
 
 export function QuizView() {
     const store = useQuizStore(useShallow(state => ({
@@ -23,14 +23,14 @@ export function QuizView() {
         setCurrentQuestionNumber(state => state + 1);
     }
 
-    const numberedQuestion: NumberedQuestion = {
-        questionNumber: currentQuestionNumber,
-        ...questions[currentQuestionNumber - 1]
-    };
+    const currentQuestion = questions.at(currentQuestionNumber - 1);
     
     return (
         <div>
-            <QuestionCard question={numberedQuestion} />
+            {currentQuestion === undefined ? 
+            <p>Failed to retrieve question details.</p> 
+            : 
+            <QuestionCard question={currentQuestion} questionNumber={currentQuestionNumber} />}
             <button type="button" onClick={toNextQuestionOrFinish} disabled={shouldBeDisabled}>
                 {currentQuestionNumber >= questions.length ? "Finish" : "Next Question"}
             </button>
