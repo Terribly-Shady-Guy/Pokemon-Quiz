@@ -24,14 +24,15 @@ export function QuizView() {
     }
 
     const currentQuestion = questions.at(currentQuestionNumber - 1);
+    const isQuestionUnavailable = currentQuestion === undefined;
     
     return (
         <div>
-            {currentQuestion === undefined ? 
+            {isQuestionUnavailable ? 
             <p>Failed to retrieve question details.</p> 
             : 
             <QuestionCard question={currentQuestion} questionNumber={currentQuestionNumber} />}
-            <button type="button" onClick={toNextQuestionOrFinish} disabled={shouldBeDisabled}>
+            <button type="button" onClick={toNextQuestionOrFinish} disabled={shouldBeDisabled || isQuestionUnavailable}>
                 {currentQuestionNumber >= questions.length ? "Finish" : "Next Question"}
             </button>
         </div>
