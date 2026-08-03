@@ -57,7 +57,7 @@ function EndView() {
             <h1>Quiz Results</h1>
             <p>Your final score is {store.score}. Total questions in the quiz: {store.questionInfo.length}.</p>
             <div>
-                {incorrectAnswers.length > 0 ? incorrectAnswers : <p>No incorrect answers! Good job.</p>}
+                {incorrectAnswers.length > 0 ? incorrectAnswers : <p>No incorrect answers! Good job!</p>}
             </div>
             <button type="button" onClick={store.reset}>Restart Quiz</button>
         </section>
